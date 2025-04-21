@@ -13,6 +13,7 @@
 (add-to-list 'load-path (expand-file-name "config" user-emacs-directory))
 
 (require 'setup-elpaca)
+(require 'setup-emacs)
 
 (provide 'init)
 ;;; init.el ends here
