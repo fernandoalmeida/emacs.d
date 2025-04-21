@@ -9,12 +9,18 @@
 (use-package emacs
   :ensure nil
   :config 
+  (fset 'yes-or-no-p 'y-or-n-p)
   (setq 
-   ring-bell-function #'ignore
-   inhibit-splash-screen t
-   inhibit-startup-message t
+   auto-save-default nil
    column-number-mode t
-   redisplay-dont-pause t)
+   create-lockfiles nil
+   inhibit-splash-screen t
+   inhibit-startup-echo-area-message t
+   inhibit-startup-message t
+   initial-scratch-message ""
+   make-backup-files nil
+   redisplay-dont-pause t
+   ring-bell-function #'ignore)
   (tool-bar-mode -1)
   (menu-bar-mode -1)
   (scroll-bar-mode -1)

@@ -15,6 +15,7 @@
 (require 'setup-elpaca)
 (require 'setup-emacs)
 (require 'setup-git)
+(require 'setup-projectile)
 
 (provide 'init)
 ;;; init.el ends here
