@@ -16,6 +16,7 @@
 (require 'setup-emacs)
 (require 'setup-git)
 (require 'setup-projectile)
+(require 'setup-nav)
 
 (provide 'init)
 ;;; init.el ends here

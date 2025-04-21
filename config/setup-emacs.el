@@ -10,6 +10,8 @@
   :ensure nil
   :config 
   (fset 'yes-or-no-p 'y-or-n-p)
+  (global-display-line-numbers-mode)
+  (menu-bar-mode -1)
   (setq 
    auto-save-default nil
    column-number-mode t
@@ -21,10 +23,12 @@
    make-backup-files nil
    redisplay-dont-pause t
    ring-bell-function #'ignore)
-  (tool-bar-mode -1)
-  (menu-bar-mode -1)
   (scroll-bar-mode -1)
-  (global-display-line-numbers-mode))
+  (tool-bar-mode -1)
+  :custom
+  (enable-recursive-minibuffers t)
+  (read-extended-command-predicate #'command-completion-default-include-p)
+  (minibuffer-prompt-properties '(read-only t cursor-intangible t face minibuffer-prompt)))
 
 (provide 'setup-emacs)
 ;; setup-emacs.el ends here
