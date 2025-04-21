@@ -8,12 +8,13 @@
 ;;; Code:
 
 ;; Produce backtraces when errors occur: can be helpful to diagnose startup issues
-;;(setq debug-on-error t)
+;; (setq debug-on-error t)
 
 (add-to-list 'load-path (expand-file-name "config" user-emacs-directory))
 
 (require 'setup-elpaca)
 (require 'setup-emacs)
+(require 'setup-theme)
 (require 'setup-git)
 (require 'setup-projectile)
 (require 'setup-nav)

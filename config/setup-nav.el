@@ -15,6 +15,7 @@
 (use-package vertico
   :ensure t
   :custom
+  (vertico-count 30)
   (vertico-cycle t)
   :init
   (vertico-mode))
@@ -58,6 +59,8 @@
   :ensure t
   :init
   (setq prefix-help-command #'embark-prefix-help-command)
+  :bind
+  (("C-;" . embark-act))
   :config
   (add-to-list 'display-buffer-alist
                '("\\`\\*Embark Collect \\(Live\\|Completions\\)\\*"
