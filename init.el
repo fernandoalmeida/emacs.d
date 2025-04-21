@@ -18,6 +18,7 @@
 (require 'setup-git)
 (require 'setup-projectile)
 (require 'setup-nav)
+(require 'setup-prog)
 
 (provide 'init)
 ;;; init.el ends here

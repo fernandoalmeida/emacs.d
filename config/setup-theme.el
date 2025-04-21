@@ -31,8 +31,11 @@
   :ensure t
   :hook
   (prog-mode . 'rainbow-mode)
-  (prog-mode . 'rainbow-delimiters-mode)
 )
+
+(use-package rainbow-delimiters
+  :ensure t
+  :hook (prog-mode . rainbow-delimiters-mode))
 
 (provide 'setup-theme)
 ;; setup-theme.el ends here
