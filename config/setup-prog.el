@@ -10,6 +10,15 @@
 ;; regex-based highlighting.
 ;;
 ;; https://github.com/tree-sitter/tree-sitter
+;;
+;; * Eglot
+;;
+;; Eglot (Emacs Polyglot) is the Emacs client for LSP, it provides commands for
+;; enriching the source code editing features, such as automatic code
+;; completion, go-to definition of function/class/module, doc of symbol
+;; at-point, refactoring, on-the-fly diagnostics, etc.
+;;
+;; https://www.gnu.org/software/emacs/manual/html_node/eglot/index.html
 
 ;;; Code:
 
@@ -37,8 +46,6 @@
   (dolist (lang '(elixir heex))
     (unless (treesit-language-available-p lang)
       (treesit-install-language-grammar lang)))
-  :hook 
-  (elixir-ts-mode . tree-sitter-hl-mode)
 )
 
 (provide 'setup-prog)

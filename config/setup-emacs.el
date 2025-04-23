@@ -24,13 +24,23 @@
    initial-scratch-message ""
    make-backup-files nil
    redisplay-dont-pause t
-   ring-bell-function #'ignore)
+   ring-bell-function #'ignore
+   default-frame-alist '((fullscreen . maximized))
+   )
+
   (scroll-bar-mode -1)
   (tool-bar-mode -1)
+  (electric-indent-mode -1)
+  (electric-pair-mode 1)
   :custom
   (enable-recursive-minibuffers t)
   (read-extended-command-predicate #'command-completion-default-include-p)
-  (minibuffer-prompt-properties '(read-only t cursor-intangible t face minibuffer-prompt)))
+  (minibuffer-prompt-properties '(read-only t cursor-intangible t face minibuffer-prompt))
+  :bind
+  ("M-p" . (lambda () (interactive) (previous-line 5)))
+  ("M-n" . (lambda () (interactive) (next-line 5)))
+)
+
 
 (provide 'setup-emacs)
 ;; setup-emacs.el ends here
