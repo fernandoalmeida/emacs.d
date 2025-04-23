@@ -46,7 +46,15 @@
   (dolist (lang '(elixir heex))
     (unless (treesit-language-available-p lang)
       (treesit-install-language-grammar lang)))
+  :hook
+  ((elixir-ts-mode . eglot-ensure))
 )
+
+(use-package eglot
+  :ensure nil
+  :config
+  (add-to-list 'eglot-server-programs
+               '(elixir-ts-mode . ("~/.lexical-lsp/_build/dev/package/lexical/bin/start_lexical.sh"))))
 
 (provide 'setup-prog)
 ;; setup-prog.el ends here
