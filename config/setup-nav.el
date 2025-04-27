@@ -18,7 +18,19 @@
   (vertico-count 30)
   (vertico-cycle t)
   :init
-  (vertico-mode))
+  (vertico-mode 1)
+  (vertico-multiform-mode 1)
+  :config
+  (setq vertico-buffer-display-action
+   '(display-buffer-in-side-window
+     (side . left)
+     (window-width . 0.3)))
+  (setq vertico-multiform-commands
+	'((consult-line buffer)
+	  (consult-yank-pop buffer)
+	  (consult-ripgrep buffer)
+          (t posframe)))
+  )
 
 (use-package savehist
   :init
@@ -30,7 +42,9 @@
   :custom
   (vertico-posframe-parameters '((left-fringe . 15)
                                  (right-fringe . 15)))
-  :init (vertico-posframe-mode 1))
+  :init
+  (vertico-posframe-mode 1)
+)
 
 (use-package marginalia
   :ensure t
@@ -53,6 +67,11 @@
    consult--source-recent-file consult--source-project-recent-file
    :preview-key '(:debounce 0.4 any))
   (setq consult-narrow-key "<")
+  :bind
+  ("C-s" . consult-line)
+  ("C-x b" . consult-buffer)
+  ("M-y" . consult-yank-from-kill-ring)
+  ("C-c g" . consult-ripgrep)
 )
 
 (use-package embark
