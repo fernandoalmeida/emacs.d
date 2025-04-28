@@ -16,6 +16,10 @@
   (load-theme 'hc-zenburn t)
   (add-to-list 'default-frame-alist '(font . "DejaVuSansMono 12"))
   (set-face-background 'isearch "brown")
+  (set-face-background 'region "dark cyan")
+  (set-face-background 'hl-line "dark slate gray")
+  :custom-face
+  (vertico-current ((t (:background "dark slate gray"))))
 )
 
 (use-package highlight-indentation

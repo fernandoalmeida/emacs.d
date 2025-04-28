@@ -27,7 +27,6 @@
    ring-bell-function #'ignore
    default-frame-alist '((fullscreen . maximized))
    )
-
   (scroll-bar-mode -1)
   (tool-bar-mode -1)
   (electric-indent-mode -1)
