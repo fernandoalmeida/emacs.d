@@ -23,8 +23,8 @@
   :config
   (setq vertico-buffer-display-action
    '(display-buffer-in-side-window
-     (side . left)
-     (window-width . 0.3)))
+     (side . bottom)
+     (window-height . 0.4)))
   (setq vertico-multiform-commands
 	'((consult-line buffer)
 	  (consult-yank-pop buffer)
@@ -60,8 +60,9 @@
   (setq xref-show-xrefs-function #'consult-xref xref-show-definitions-function #'consult-xref)
   :config
   (consult-customize
+   consult-line :initial (thing-at-point 'symbol)
    consult-theme :preview-key '(:debounce 0.2 any)
-   consult-ripgrep consult-git-grep consult-grep consult-man
+   consult-ripgrep consult-git-grep consult-grep consult-man :initial (thing-at-point 'symbol)
    consult-bookmark consult-recent-file consult-xref
    consult--source-bookmark consult--source-file-register
    consult--source-recent-file consult--source-project-recent-file
