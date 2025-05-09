@@ -35,6 +35,8 @@
   (enable-recursive-minibuffers t)
   (read-extended-command-predicate #'command-completion-default-include-p)
   (minibuffer-prompt-properties '(read-only t cursor-intangible t face minibuffer-prompt))
+  (cua-mode t)
+  (setq cua-enable-cua-keys nil)
   :bind
   ("M-p" . (lambda () (interactive) (previous-line 5)))
   ("M-n" . (lambda () (interactive) (next-line 5)))
