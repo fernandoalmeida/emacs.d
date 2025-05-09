@@ -3,7 +3,7 @@
 ;;; Commentary:
 
 ;; * Magit
-;; 
+;;
 ;; Magit is an interface to the version control system Git, implemented as an
 ;; Emacs package. It is complete enough to allow users to perform almost all
 ;; of their daily version control tasks directly from within Emacs.
@@ -22,7 +22,11 @@
 (use-package magit-todos
   :after magit
   :ensure t
-  :config (magit-todos-mode))
+)
+
+(use-package git-timemachine
+  :ensure t
+)
 
 (provide 'setup-git)
 ;; setup-git.el ends here
