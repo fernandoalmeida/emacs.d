@@ -71,5 +71,11 @@
   (corfu-popupinfo-mode)
   )
 
+(use-package po-mode
+  :ensure t
+  :mode
+  ("\\.po\\'" . po-mode)
+)
+
 (provide 'setup-prog)
 ;; setup-prog.el ends here
