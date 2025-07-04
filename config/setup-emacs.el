@@ -8,6 +8,7 @@
 
 (use-package emacs
   :ensure nil
+
   :config
   (delete-selection-mode 1)
   (fset 'yes-or-no-p 'y-or-n-p)
@@ -34,16 +35,24 @@
   (electric-pair-mode 1)
   (cua-mode t)
   (setq cua-enable-cua-keys nil)
+  (defun custom/backward-kill-word (arg)
+    "Kill backward word without copy."
+    (interactive "p")
+    (delete-region (point) (progn (backward-word arg) (point))))
+  (global-set-key (kbd "C-<backspace>") 'custom/backward-kill-word)
+
   :hook
   (before-save . delete-trailing-whitespace)
+
   :custom
   (enable-recursive-minibuffers t)
   (read-extended-command-predicate #'command-completion-default-include-p)
   (minibuffer-prompt-properties '(read-only t cursor-intangible t face minibuffer-prompt))
+
   :bind
   ("M-p" . (lambda () (interactive) (previous-line 5)))
   ("M-n" . (lambda () (interactive) (next-line 5)))
-)
+  )
 
 
 (provide 'setup-emacs)
