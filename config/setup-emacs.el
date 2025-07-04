@@ -22,6 +22,7 @@
    inhibit-startup-echo-area-message t
    inhibit-startup-message t
    initial-scratch-message ""
+   initial-major-mode (quote text-mode)
    make-backup-files nil
    redisplay-dont-pause t
    ring-bell-function #'ignore

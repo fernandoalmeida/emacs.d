@@ -19,32 +19,16 @@
   (vertico-cycle t)
   :init
   (vertico-mode 1)
-  (vertico-multiform-mode 1)
+  (vertico-buffer-mode 1)
   :config
-  (setq vertico-buffer-display-action
-   '(display-buffer-in-side-window
-     (side . bottom)
-     (window-height . 0.4)))
-  (setq vertico-multiform-commands
-	'((consult-line buffer)
-	  (consult-yank-pop buffer)
-	  (consult-ripgrep buffer)
-          (t posframe)))
+  (setq vertico-buffer-display-action '(display-buffer-in-side-window
+					(side . bottom)
+					(window-height . 0.3)))
   )
 
 (use-package savehist
   :init
   (savehist-mode))
-
-(use-package vertico-posframe
-  :ensure t
-  :after vertico
-  :custom
-  (vertico-posframe-parameters '((left-fringe . 15)
-                                 (right-fringe . 15)))
-  :init
-  (vertico-posframe-mode 1)
-)
 
 (use-package marginalia
   :ensure t
