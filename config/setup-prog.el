@@ -37,9 +37,12 @@
   :hook ((elixir-ts-mode . eglot-ensure)
 	 (before-save . eglot-format))
 )
+
+(use-package exunit
+  :ensure t
   :hook
-  ((elixir-ts-mode . eglot-ensure))
-)
+  (elixir-ts-mode . exunit-mode)
+  )
 
 (use-package eglot
   :ensure nil
