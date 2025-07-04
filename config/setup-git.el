@@ -32,5 +32,11 @@
    ("C-c v w" . blamer-kill-ring-commit-hash))
 )
 
+(use-package browse-at-remote
+  :ensure t
+  :bind
+  (("C-c v r" . browse-at-remote))
+)
+
 (provide 'setup-git)
 ;; setup-git.el ends here
