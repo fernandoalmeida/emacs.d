@@ -50,5 +50,26 @@
   (add-to-list 'eglot-server-programs
                '(elixir-ts-mode . ("~/.lexical-lsp/_build/dev/package/lexical/bin/start_lexical.sh"))))
 
+(use-package corfu
+  :ensure t
+
+  :custom
+  (corfu-cycle t)
+  (corfu-auto t)
+  (corfu-auto-prefix 2)
+  (corfu-auto-delay 0.1)
+  (corfu-popupinfo-delay '(0.5 . 0.2))
+  (corfu-preview-current 'insert)
+  (corfu-preselect 'first)
+  (corfu-on-exact-match nil)
+  (corfu-min-width 30)
+  (corfu-max-width 30)
+
+  :init
+  (global-corfu-mode)
+  (corfu-history-mode)
+  (corfu-popupinfo-mode)
+  )
+
 (provide 'setup-prog)
 ;; setup-prog.el ends here
