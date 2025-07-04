@@ -83,7 +83,8 @@
   :init
   (setq prefix-help-command #'embark-prefix-help-command)
   :bind
-  (("C-;" . embark-act))
+  (("C-;" . embark-act)
+   ("M-." . embark-dwim))
   :config
   (add-to-list 'display-buffer-alist
                '("\\`\\*Embark Collect \\(Live\\|Completions\\)\\*"
