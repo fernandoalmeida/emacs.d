@@ -19,11 +19,6 @@
   :after transient
   :ensure t)
 
-(use-package magit-todos
-  :after magit
-  :ensure t
-)
-
 (use-package git-timemachine
   :ensure t
 )
