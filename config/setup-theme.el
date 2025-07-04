@@ -10,22 +10,26 @@
 
 ;;; Code:
 
-(use-package hc-zenburn-theme
+(use-package zenburn-theme
   :ensure t
+  :after (vertico magit)
+  :init
+  (setq current-line-background "dark slate gray")
+  (setq selected-region-background "#60594c")
   :config
-  (load-theme 'hc-zenburn t)
+  (load-theme 'zenburn t)
   (add-to-list 'default-frame-alist '(font . "DejaVuSansMono 12"))
-  (set-face-background 'isearch "brown")
-  (set-face-background 'region "dark cyan")
-  (set-face-background 'hl-line "dark slate gray")
-  :custom-face
-  (vertico-current ((t (:background "dark slate gray"))))
+  (set-face-background 'hl-line current-line-background)
+  (set-face-background 'vertico-current current-line-background)
+  (set-face-background 'magit-section-highlight current-line-background)
+  (set-face-background 'magit-diff-file-heading-highlight current-line-background)
+  (set-face-background 'region selected-region-background)
 )
 
 (use-package highlight-indentation
   :ensure t
   :config
-  (set-face-background 'highlight-indentation-current-column-face "#393939")
+  (set-face-background 'highlight-indentation-current-column-face "gray22")
   :hook
   (prog-mode . (lambda ()
                  (highlight-indentation-current-column-mode 1)
