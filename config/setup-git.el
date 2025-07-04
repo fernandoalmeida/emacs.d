@@ -21,6 +21,15 @@
 
 (use-package git-timemachine
   :ensure t
+  :bind
+  (("C-c v t" . git-timemachine))
+)
+
+(use-package blamer
+  :ensure t
+  :bind
+  (("C-c v i" . blamer-show-posframe-commit-info)
+   ("C-c v w" . blamer-kill-ring-commit-hash))
 )
 
 (provide 'setup-git)
