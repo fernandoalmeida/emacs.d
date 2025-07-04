@@ -37,14 +37,20 @@
 
 (use-package consult
   :ensure t
-  :hook (completion-list-mode . consult-preview-at-point-mode)
+  :hook
+  (completion-list-mode . consult-preview-at-point-mode)
   :init
   (advice-add #'register-preview :override #'consult-register-window)
   (setq register-preview-delay 0.5)
   (setq xref-show-xrefs-function #'consult-xref xref-show-definitions-function #'consult-xref)
   :config
+  (defun custom/consult-line ()
+    "Run `consult-line` using the active region as initial input, or blank."
+    (interactive)
+    (let ((initial (when (use-region-p)
+                     (buffer-substring-no-properties (region-beginning) (region-end)))))
+      (consult-line initial)))
   (consult-customize
-   consult-line :initial (thing-at-point 'symbol)
    consult-theme :preview-key '(:debounce 0.2 any)
    consult-ripgrep consult-git-grep consult-grep consult-man :initial (thing-at-point 'symbol)
    consult-bookmark consult-recent-file consult-xref
@@ -53,7 +59,7 @@
    :preview-key '(:debounce 0.4 any))
   (setq consult-narrow-key "<")
   :bind
-  ("C-s" . consult-line)
+  ("C-s" . custom/consult-line)
   ("C-x b" . consult-buffer)
   ("M-y" . consult-yank-from-kill-ring)
   ("C-c g" . consult-ripgrep)
