@@ -13,7 +13,6 @@
   (delete-selection-mode 1)
   (fset 'yes-or-no-p 'y-or-n-p)
   (global-hl-line-mode t)
-  (global-display-line-numbers-mode)
   (menu-bar-mode -1)
   (setq
    auto-save-default nil
@@ -43,6 +42,7 @@
 
   :hook
   (before-save . delete-trailing-whitespace)
+  (prog-mode . display-line-numbers-mode)
 
   :custom
   (enable-recursive-minibuffers t)
