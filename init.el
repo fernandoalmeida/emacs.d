@@ -19,6 +19,7 @@
 (require 'setup-projectile)
 (require 'setup-nav)
 (require 'setup-prog)
+(require 'setup-term)
 
 (provide 'init)
 ;;; init.el ends here
