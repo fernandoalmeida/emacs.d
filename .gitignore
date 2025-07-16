@@ -6,3 +6,6 @@ elpaca
 /projects
 /tree-sitter/
 session.*
+/.cache/
+/elpa/
+/eshell/
