@@ -25,7 +25,7 @@
                  '("^\\*claude"
                    (display-buffer-in-side-window)
                    (side . right)
-                   (window-width . 90)))
+                   (window-width . 80)))
 
   :bind-keymap
   ("C-c c" . claude-code-command-map)
