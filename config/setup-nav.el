@@ -2,6 +2,12 @@
 
 ;;; Commentary:
 
+;; * Projectile
+;; Projectile is a project interaction library for Emacs.
+;; It provides a powerful set of features operating at the project level,
+;; as well as simple heuristics to identify projects.
+;; https://github.com/bbatsov/projectile/
+;; 
 ;; * Vertico
 ;; Vertico provides a performant and minimalistic vertical completion UI
 ;; based on the default completion system.
@@ -11,6 +17,14 @@
 ;; 
 
 ;;; Code:
+
+(use-package projectile
+  :ensure t
+  :init
+  (projectile-mode +1)
+  :bind (:map projectile-mode-map
+              ("s-p" . projectile-command-map)
+              ("C-c p" . projectile-command-map)))
 
 (use-package vertico
   :ensure t

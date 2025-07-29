@@ -16,7 +16,6 @@
 (require 'setup-emacs)
 (require 'setup-theme)
 (require 'setup-git)
-(require 'setup-projectile)
 (require 'setup-nav)
 (require 'setup-prog)
 (require 'setup-ai)
