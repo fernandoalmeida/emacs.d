@@ -1,4 +1,0 @@
-# -*- mode: snippet -*-
-# name: build(:factory)
-# --
-build(:${1:factory})

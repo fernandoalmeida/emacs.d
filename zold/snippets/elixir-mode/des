@@ -1,8 +1,0 @@
-# -*- mode: snippet -*-
-# name: describe
-# --
-describe "${1:function/1}" do
-  test "${2:it does something}" do
-    $0
-  end
-end

@@ -1,6 +1,0 @@
-[submodule "vendor/git-emacs"]
-	path = vendor/git-emacs
-	url = https://github.com/tsgates/git-emacs.git
-[submodule "vendor/evernote-mode"]
-       path = vendor/evernote-mode
-       url = https://github.com/pymander/evernote-mode.git

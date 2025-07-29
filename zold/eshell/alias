@@ -1,3 +1,0 @@
-alias d dired $1
-alias f find-file $1
-alias ff find-file-other-window $1

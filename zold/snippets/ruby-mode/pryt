@@ -1,4 +1,0 @@
-# -*- mode: snippet; require-final-newline: nil -*-
-# name: tappry
-# --
-tap { |x| require 'pry'; binding.pry; }
