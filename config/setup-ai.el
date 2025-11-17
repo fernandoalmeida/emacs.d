@@ -1,18 +1,5 @@
 ;;; setup-ai.el --- Setup AI-related packages
 
-(use-package copilot
-  :ensure t
-  :vc (:url "https://github.com/copilot-emacs/copilot.el"
-            :rev :newest
-            :branch "main")
-  :hook (prog-mode . copilot-mode)
-  :bind (:map copilot-completion-map
-              ("<tab>" . 'copilot-accept-completion)
-              ("TAB" . 'copilot-accept-completion)
-	      ("M-p" . 'copilot-previous-completion)
-	      ("M-n" . 'copilot-next-completion))
-  )
-
 (use-package claude-code
   :ensure (claude-code :type git
                        :host github
