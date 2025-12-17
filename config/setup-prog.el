@@ -77,5 +77,10 @@
   ("\\.po\\'" . po-mode)
 )
 
+(use-package markdown-mode
+  :ensure t
+  :mode ("README\\.md\\'" . gfm-mode)
+  :init (setq markdown-command "pandoc"))
+
 (provide 'setup-prog)
 ;; setup-prog.el ends here
