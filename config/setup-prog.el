@@ -30,6 +30,15 @@
   (treesit-auto-add-to-auto-mode-alist 'all)
   (global-treesit-auto-mode))
 
+(use-package treesit-fold
+  :ensure (treesit-fold
+	   :host github
+	   :repo "emacs-tree-sitter/treesit-fold")
+  :init
+  (global-treesit-fold-mode)
+  :bind
+  ("C-c f f" . treesit-fold-toggle))
+
 (use-package elixir-ts-mode
   :ensure t
   :after treesit-auto
