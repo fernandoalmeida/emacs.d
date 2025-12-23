@@ -98,7 +98,9 @@
   (setq prefix-help-command #'embark-prefix-help-command)
   :bind
   (("C-;" . embark-act)
-   ("M-." . embark-dwim))
+   ("M-." . embark-dwim)
+   ("C-," . embark-previous-symbol)
+   ("C-." . embark-next-symbol))
   :config
   (add-to-list 'display-buffer-alist
                '("\\`\\*Embark Collect \\(Live\\|Completions\\)\\*"

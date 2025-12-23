@@ -34,8 +34,6 @@
   :ensure t
   :after treesit-auto
   :mode "\\.exs?\\'"
-  :hook ((elixir-ts-mode . eglot-ensure)
-	 (before-save . eglot-format))
 )
 
 (use-package exunit
@@ -46,9 +44,15 @@
 
 (use-package eglot
   :ensure nil
-  :config
-  (add-to-list 'eglot-server-programs
-               '(elixir-ts-mode . ("~/.lexical-lsp/_build/dev/package/lexical/bin/start_lexical.sh"))))
+  :custom
+  (eglot-server-programs
+   '(((elixir-ts-mode) . ("~/.lexical-lsp/_build/dev/package/lexical/bin/start_lexical.sh"))
+     ((js-ts-mode typescript-ts-mode tsx-ts-mode) . ("typescript-language-server" "--stdio"))))
+  :hook
+  ((elixir-ts-mode . eglot-ensure)
+   (typescript-ts-mode . eglot-ensure)
+   (before-save . eglot-format))
+  )
 
 (use-package corfu
   :ensure t
