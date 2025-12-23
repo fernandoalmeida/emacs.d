@@ -55,13 +55,26 @@
   :ensure nil
   :custom
   (eglot-server-programs
-   '(((elixir-ts-mode) . ("~/.lexical-lsp/_build/dev/package/lexical/bin/start_lexical.sh"))
-     ((js-ts-mode typescript-ts-mode tsx-ts-mode) . ("typescript-language-server" "--stdio"))))
+   '(((js-ts-mode typescript-ts-mode tsx-ts-mode) . ("emacs-lsp-booster" "typescript-language-server" "--stdio"))))
   :hook
   ((elixir-ts-mode . eglot-ensure)
    (typescript-ts-mode . eglot-ensure)
    (before-save . eglot-format))
   )
+
+(with-eval-after-load 'eglot
+  (add-to-list 'eglot-server-programs
+               `((elixir-ts-mode heex-ts-mode) .
+                 ,(if (and (fboundp 'w32-shell-dos-semantics)
+                           (w32-shell-dos-semantics))
+                      '(("expert" "--stdio"))
+                    (eglot-alternatives
+                     '(("expert" "--stdio")))))))
+
+(use-package eglot-booster
+  :ensure (eglot-booster :host github :repo "jdtsmith/eglot-booster")
+  :after eglot
+  :config (eglot-booster-mode))
 
 (use-package corfu
   :ensure t
