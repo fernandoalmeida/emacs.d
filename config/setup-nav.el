@@ -18,38 +18,6 @@
 
 ;;; Code:
 
-(use-package projectile
-  :ensure t
-  :init
-  (projectile-mode +1)
-  :bind (:map projectile-mode-map
-              ("s-p" . projectile-command-map)
-              ("C-c p" . projectile-command-map)))
-
-(use-package vertico
-  :ensure t
-  :custom
-  (vertico-count 30)
-  (vertico-cycle t)
-  :init
-  (vertico-mode 1)
-  (vertico-buffer-mode 1)
-  :config
-  (setq vertico-buffer-display-action
-	'(display-buffer-in-side-window
-	  (side . bottom)
-	  (window-height . 0.3)))
-  )
-
-(use-package savehist
-  :init
-  (savehist-mode))
-
-(use-package marginalia
-  :ensure t
-  :after vertico
-  :init (marginalia-mode))
-
 (use-package consult
   :ensure t
 
@@ -112,12 +80,44 @@
   :hook
   (embark-collect-mode . consult-preview-at-point-mode))
 
+(use-package marginalia
+  :ensure t
+  :after vertico
+  :init (marginalia-mode))
+
 (use-package orderless
   :ensure t
   :custom
   (completion-styles '(orderless basic))
   (completion-category-defaults nil)
   (completion-category-overrides '((file (styles partial-completion)))))
+
+(use-package projectile
+  :ensure t
+  :init
+  (projectile-mode +1)
+  :bind (:map projectile-mode-map
+              ("s-p" . projectile-command-map)
+              ("C-c p" . projectile-command-map)))
+
+(use-package savehist
+  :init
+  (savehist-mode))
+
+(use-package vertico
+  :ensure t
+  :custom
+  (vertico-count 30)
+  (vertico-cycle t)
+  :init
+  (vertico-mode 1)
+  (vertico-buffer-mode 1)
+  :config
+  (setq vertico-buffer-display-action
+	'(display-buffer-in-side-window
+	  (side . bottom)
+	  (window-height . 0.3)))
+  )
 
 (provide 'setup-nav)
 ;; setup-nav.el ends here
