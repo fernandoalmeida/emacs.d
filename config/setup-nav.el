@@ -104,6 +104,11 @@
   :init
   (savehist-mode))
 
+(use-package undo-tree
+  :ensure t
+  :init
+  (global-undo-tree-mode))
+
 (use-package vertico
   :ensure t
   :custom
