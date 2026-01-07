@@ -52,6 +52,7 @@
   :bind
   ("M-p" . (lambda () (interactive) (previous-line 5)))
   ("M-n" . (lambda () (interactive) (next-line 5)))
+  ("C-c r" . revert-buffer)
   )
 
 
