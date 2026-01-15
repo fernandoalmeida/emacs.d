@@ -22,34 +22,31 @@
 
 ;;; Code:
 
-(use-package treesit-auto
+(use-package corfu
   :ensure t
+
   :custom
-  (treesit-auto-install t)
-  :config
-  (treesit-auto-add-to-auto-mode-alist 'all)
-  (global-treesit-auto-mode))
+  (corfu-cycle t)
+  (corfu-auto t)
+  (corfu-auto-prefix 2)
+  (corfu-auto-delay 0.1)
+  (corfu-popupinfo-delay '(0.5 . 0.2))
+  (corfu-preview-current 'insert)
+  (corfu-preselect 'first)
+  (corfu-on-exact-match nil)
+  (corfu-min-width 30)
+  (corfu-max-width 30)
 
-(use-package treesit-fold
-  :ensure (treesit-fold
-	   :host github
-	   :repo "emacs-tree-sitter/treesit-fold")
   :init
-  (global-treesit-fold-mode)
-  :bind
-  ("C-c f f" . treesit-fold-toggle))
-
-(use-package elixir-ts-mode
-  :ensure t
-  :after treesit-auto
-  :mode "\\.exs?\\'"
-)
-
-(use-package exunit
-  :ensure t
-  :hook
-  (elixir-ts-mode . exunit-mode)
+  (global-corfu-mode)
+  (corfu-history-mode)
+  (corfu-popupinfo-mode)
   )
+
+(use-package editorconfig
+  :ensure t
+  :config
+  (editorconfig-mode 1))
 
 (use-package eglot
   :ensure nil
@@ -76,26 +73,23 @@
   :after eglot
   :config (eglot-booster-mode))
 
-(use-package corfu
+(use-package elixir-ts-mode
   :ensure t
+  :after treesit-auto
+  :mode "\\.exs?\\'"
+)
 
-  :custom
-  (corfu-cycle t)
-  (corfu-auto t)
-  (corfu-auto-prefix 2)
-  (corfu-auto-delay 0.1)
-  (corfu-popupinfo-delay '(0.5 . 0.2))
-  (corfu-preview-current 'insert)
-  (corfu-preselect 'first)
-  (corfu-on-exact-match nil)
-  (corfu-min-width 30)
-  (corfu-max-width 30)
-
-  :init
-  (global-corfu-mode)
-  (corfu-history-mode)
-  (corfu-popupinfo-mode)
+(use-package exunit
+  :ensure t
+  :hook
+  (elixir-ts-mode . exunit-mode)
   )
+
+(use-package markdown-mode
+  :ensure t
+  :mode ("README\\.md\\'" . gfm-mode)
+  :init (setq markdown-command "pandoc"))
+
 
 (use-package po-mode
   :ensure t
@@ -103,10 +97,23 @@
   ("\\.po\\'" . po-mode)
 )
 
-(use-package markdown-mode
+(use-package treesit-auto
   :ensure t
-  :mode ("README\\.md\\'" . gfm-mode)
-  :init (setq markdown-command "pandoc"))
+  :custom
+  (treesit-auto-install t)
+  :config
+  (treesit-auto-add-to-auto-mode-alist 'all)
+  (global-treesit-auto-mode))
+
+(use-package treesit-fold
+  :ensure (treesit-fold
+	   :host github
+	   :repo "emacs-tree-sitter/treesit-fold")
+  :init
+  (global-treesit-fold-mode)
+  :bind
+  ("C-c f f" . treesit-fold-toggle))
+
 
 (provide 'setup-prog)
 ;; setup-prog.el ends here

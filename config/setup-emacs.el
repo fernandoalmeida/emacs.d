@@ -45,6 +45,7 @@
   (prog-mode . display-line-numbers-mode)
 
   :custom
+  (global-display-line-numbers-mode)
   (enable-recursive-minibuffers t)
   (read-extended-command-predicate #'command-completion-default-include-p)
   (minibuffer-prompt-properties '(read-only t cursor-intangible t face minibuffer-prompt))
@@ -54,7 +55,6 @@
   ("M-n" . (lambda () (interactive) (next-line 5)))
   ("C-c r" . revert-buffer)
   )
-
 
 (provide 'setup-emacs)
 ;; setup-emacs.el ends here
