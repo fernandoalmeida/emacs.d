@@ -38,7 +38,16 @@
     "Kill backward word without copy."
     (interactive "p")
     (delete-region (point) (progn (backward-word arg) (point))))
-  (global-set-key (kbd "C-<backspace>") 'custom/backward-kill-word)
+  (defun custom/copy-buffer-file-path ()
+    "Copy buffer file path to kill ring."
+    (interactive)
+    (kill-new (buffer-file-name))
+    (message (concat "Copied file path: " (buffer-file-name))))
+  (defun custom/copy-buffer-file-name ()
+    "Copy buffer file name to kill ring."
+    (interactive)
+    (kill-new (buffer-name))
+    (message (concat "Copied file name: " (buffer-name))))
 
   :hook
   (before-save . delete-trailing-whitespace)
@@ -54,7 +63,10 @@
   ("M-p" . (lambda () (interactive) (previous-line 5)))
   ("M-n" . (lambda () (interactive) (next-line 5)))
   ("C-c r" . revert-buffer)
-  )
+  ("C-<backspace>" . custom/backward-kill-word)
+  ("C-S-w" . custom/copy-buffer-file-name)
+  ("C-S-M-w" . custom/copy-buffer-file-path)
+)
 
 (provide 'setup-emacs)
 ;; setup-emacs.el ends here
