@@ -51,14 +51,12 @@
    consult--source-bookmark consult--source-file-register
    consult--source-recent-file consult--source-project-recent-file
    :preview-key '(:debounce 0.4 any))
-  (setq consult-narrow-key "<")
 
   :bind
   ("C-s" . custom/consult-line)
   ("C-c g" . custom/consult-ripgrep)
   ("C-x b" . consult-buffer)
-  ("M-y" . consult-yank-from-kill-ring)
-  )
+  ("M-y" . consult-yank-from-kill-ring))
 
 (use-package embark
   :ensure t
@@ -96,7 +94,10 @@
   :ensure t
   :init
   (projectile-mode +1)
-  :bind (:map projectile-mode-map
+  (setq projectile-current-project-on-switch 'keep)
+  (setq projectile-switch-project-action #'projectile-commander)
+  :bind
+  (:map projectile-mode-map
               ("s-p" . projectile-command-map)
               ("C-c p" . projectile-command-map)))
 
@@ -107,7 +108,8 @@
 (use-package undo-tree
   :ensure t
   :init
-  (global-undo-tree-mode))
+  (global-undo-tree-mode)
+  (setq undo-tree-auto-save-history nil))
 
 (use-package vertico
   :ensure t
